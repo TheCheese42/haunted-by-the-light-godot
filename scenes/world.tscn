@@ -1,0 +1,322 @@
+[gd_scene load_steps=39 format=3 uid="uid://d135r3nr51wig"]
+
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_6na45"]
+[ext_resource type="Texture2D" uid="uid://ppg3xm0765aj" path="res://assets/textures/grass/butterfly_small1_1.png" id="2_5wkdo"]
+[ext_resource type="Texture2D" uid="uid://bsslny3v03f8v" path="res://assets/textures/ice/star.png" id="2_au7cd"]
+[ext_resource type="Texture2D" uid="uid://ct6e2lf7tu041" path="res://assets/textures/grass/cloud1.png" id="2_bt316"]
+[ext_resource type="PackedScene" uid="uid://cwnudjmc5ts06" path="res://scenes/player.tscn" id="2_fyjhh"]
+[ext_resource type="Texture2D" uid="uid://bvj2ug8fg7e00" path="res://assets/textures/grass/cloud2.png" id="3_1nvcb"]
+[ext_resource type="Texture2D" uid="uid://c7oelwdu3buv2" path="res://assets/textures/grass/butterfly_small1_2.png" id="3_5gfq3"]
+[ext_resource type="PackedScene" uid="uid://dv8mvpf85avpa" path="res://scenes/spectre.tscn" id="3_7nysb"]
+[ext_resource type="Texture2D" uid="uid://gvjpoykdevxw" path="res://assets/textures/obsidian/blinking_star_big_1.png" id="3_rb7x5"]
+[ext_resource type="Texture2D" uid="uid://5dplgek1ocm" path="res://assets/textures/grass/butterfly_small1_3.png" id="4_m06nu"]
+[ext_resource type="Texture2D" uid="uid://bfett05bswmeh" path="res://assets/textures/obsidian/blinking_star_big_2.png" id="4_nbgla"]
+[ext_resource type="Texture2D" uid="uid://da4wlnv2b0uow" path="res://assets/textures/grass/cloud3.png" id="4_qk7h4"]
+[ext_resource type="Texture2D" uid="uid://8yehejtyquua" path="res://assets/textures/grass/butterfly_small1_4.png" id="5_5ide2"]
+[ext_resource type="Texture2D" uid="uid://bkpryom58yap0" path="res://assets/textures/obsidian/blinking_star_1.png" id="5_jhv8x"]
+[ext_resource type="Texture2D" uid="uid://b5iv1ia1vpv3b" path="res://assets/textures/obsidian/blinking_star_2.png" id="6_6s6j3"]
+[ext_resource type="Texture2D" uid="uid://cx3eui5iurfr4" path="res://assets/textures/grass/butterfly_small2_1.png" id="6_oi5p3"]
+[ext_resource type="Texture2D" uid="uid://d1d4vd0kyp4mb" path="res://assets/textures/grass/butterfly_small2_2.png" id="7_xj5qj"]
+[ext_resource type="Texture2D" uid="uid://wib2b4bu6ltg" path="res://assets/textures/grass/butterfly_small2_3.png" id="8_hqcrs"]
+[ext_resource type="PackedScene" uid="uid://cx7nnivmkmb25" path="res://scenes/ui.tscn" id="8_m48eh"]
+[ext_resource type="Texture2D" uid="uid://del5swgl4rq8i" path="res://assets/textures/misc/heart.png" id="8_wpieh"]
+[ext_resource type="Texture2D" uid="uid://cwqgfd0jgshb4" path="res://assets/textures/grass/butterfly_small2_4.png" id="9_5hq68"]
+[ext_resource type="AudioStream" uid="uid://buw3a8e2mv3yf" path="res://assets/music/mysterious_sewer_main.mp3" id="9_8dqga"]
+[ext_resource type="PackedScene" uid="uid://cnavs58rqu4me" path="res://scenes/pause.tscn" id="9_belq5"]
+[ext_resource type="AudioStream" uid="uid://bsb12cpancrg7" path="res://assets/music/cut_overworld.mp3" id="10_4skbr"]
+[ext_resource type="Texture2D" uid="uid://ddjjwo7oxbq5d" path="res://assets/textures/grass/butterfly_small3_1.png" id="10_ythk4"]
+[ext_resource type="Texture2D" uid="uid://bpv4fmnkh5wdj" path="res://assets/textures/grass/butterfly_small3_2.png" id="11_fciy0"]
+[ext_resource type="AudioStream" uid="uid://csq2qc6ce5u7" path="res://assets/music/Horizon.mp3" id="11_hpljh"]
+[ext_resource type="PackedScene" uid="uid://bimv56ktvweuk" path="res://scenes/fade_overlay.tscn" id="12_7d8wh"]
+[ext_resource type="Texture2D" uid="uid://dnfwsbls2nasw" path="res://assets/textures/grass/butterfly_small3_3.png" id="12_78l1g"]
+[ext_resource type="Texture2D" uid="uid://bti5iaghukseh" path="res://assets/textures/grass/butterfly_small3_4.png" id="13_p4ao0"]
+[ext_resource type="FontFile" uid="uid://fumordb52pi2" path="res://assets/fonts/chava.regular.otf" id="29_806xn"]
+[ext_resource type="Texture2D" uid="uid://uiraww8602il" path="res://assets/textures/ui/pause_icon.png" id="30_p284b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_445o0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bt316")
+}],
+"loop": true,
+"name": &"cloud1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1nvcb")
+}],
+"loop": true,
+"name": &"cloud2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qk7h4")
+}],
+"loop": true,
+"name": &"cloud3",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmkjv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5wkdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5gfq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m06nu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5ide2")
+}],
+"loop": true,
+"name": &"fly1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oi5p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xj5qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hqcrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5hq68")
+}],
+"loop": true,
+"name": &"fly2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ythk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fciy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_78l1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p4ao0")
+}],
+"loop": true,
+"name": &"fly3",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0lv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rb7x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nbgla")
+}],
+"loop": true,
+"name": &"big",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jhv8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6s6j3")
+}],
+"loop": true,
+"name": &"small",
+"speed": 1.0
+}]
+
+[sub_resource type="Environment" id="Environment_lx0fl"]
+background_mode = 2
+tonemap_mode = 3
+glow_normalized = true
+glow_intensity = 1.12
+glow_bloom = 0.15
+glow_blend_mode = 0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3l8vl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ibjx"]
+font = ExtResource("29_806xn")
+font_size = 50
+font_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="World" type="Node2D" groups=["world"]]
+script = ExtResource("1_6na45")
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Cloud" type="AnimatedSprite2D" parent="Clouds"]
+visible = false
+texture_filter = 1
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_445o0")
+animation = &"cloud2"
+
+[node name="Butterflies" type="Node2D" parent="."]
+
+[node name="Butterfly" type="AnimatedSprite2D" parent="Butterflies"]
+visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dmkjv")
+animation = &"fly1"
+
+[node name="IceStars" type="Node2D" parent="."]
+visible = false
+
+[node name="Star" type="Sprite2D" parent="IceStars"]
+texture_filter = 1
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("2_au7cd")
+metadata/_edit_lock_ = true
+
+[node name="ObsStars" type="Node2D" parent="."]
+visible = false
+
+[node name="Star" type="AnimatedSprite2D" parent="ObsStars"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_d0lv0")
+animation = &"big"
+metadata/_edit_lock_ = true
+
+[node name="Maps" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_fyjhh")]
+floor_max_angle = 1.22173
+
+[node name="Spectre" parent="." instance=ExtResource("3_7nysb")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lx0fl")
+camera_attributes = SubResource("CameraAttributesPractical_3l8vl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("8_m48eh")]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8dqga")
+parameters/looping = true
+
+[node name="OverworldMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4skbr")
+volume_db = -1.0
+
+[node name="IceMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hpljh")
+
+[node name="Hearts" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="HeartsControl" type="Control" parent="Hearts"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+scale = Vector2(5, 5)
+
+[node name="HeartsMargin" type="MarginContainer" parent="Hearts/HeartsControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -47.0
+offset_right = 6.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hearts/HeartsControl/HeartsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Heart1" type="TextureRect" parent="Hearts/HeartsControl/HeartsMargin/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_wpieh")
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="Hearts/HeartsControl/HeartsMargin/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_wpieh")
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="Hearts/HeartsControl/HeartsMargin/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_wpieh")
+stretch_mode = 2
+
+[node name="Points" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Points"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 35
+
+[node name="PointsLabel" type="Label" parent="Points/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5ibjx")
+
+[node name="PauseIcon" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseIcon"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_bottom = 52.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 56
+
+[node name="TextureRect" type="TextureRect" parent="PauseIcon/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("30_p284b")
+stretch_mode = 2
+
+[node name="Pause" parent="." instance=ExtResource("9_belq5")]
+visible = false
+
+[node name="FadeOverlay" parent="." instance=ExtResource("12_7d8wh")]
+
+[node name="CloudTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="ButterflyTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="gui_input" from="PauseIcon/MarginContainer/TextureRect" to="." method="_on_pause_icon_input"]
+[connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timeout"]
+[connection signal="timeout" from="ButterflyTimer" to="." method="_on_butterfly_timeout"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv8mvpf85avpa"]
+
+[ext_resource type="Texture2D" uid="uid://ci3wy4c26f4wy" path="res://assets/textures/spectre/spectre_awake.png" id="1_ubr0t"]
+[ext_resource type="Texture2D" uid="uid://cabx77egnrxpy" path="res://assets/textures/spectre/spectre_idle_1.png" id="2_kq1bv"]
+[ext_resource type="Texture2D" uid="uid://clnksdiesnqa5" path="res://assets/textures/spectre/spectre_idle_2.png" id="3_playp"]
+[ext_resource type="Texture2D" uid="uid://bl7qbx6jxga4d" path="res://assets/textures/spectre/spectre_moving_1.png" id="4_5qb1l"]
+[ext_resource type="Texture2D" uid="uid://urfxujokw3h7" path="res://assets/textures/spectre/spectre_moving_2.png" id="5_2yl4p"]
+[ext_resource type="Script" path="res://scenes/spectre.gd" id="6_pq1cv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4utup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ubr0t")
+}],
+"loop": true,
+"name": &"awake",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kq1bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_playp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5qb1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2yl4p")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 1.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_38lt3"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hky68"]
+gradient = SubResource("Gradient_38lt3")
+width = 300
+height = 300
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[node name="Spectre" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_4utup")
+animation = &"idle"
+script = ExtResource("6_pq1cv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 14)
+shadow_enabled = true
+shadow_filter = 1
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_hky68")
+texture_scale = 0.75
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(0, 22, 10, 10, 13, 7, 14, 5, 16, 0, 16, -5, 13, -8, 10, -9, 4, -15, 2, -16, -2, -16, -4, -15, -13, -7, -20, 7, -27, 16, -28, 19, -28, 20, -27, 23, -23, 27, -20, 28, -11, 28, -4, 26)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

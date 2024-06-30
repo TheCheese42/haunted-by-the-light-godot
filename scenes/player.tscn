@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwnudjmc5ts06"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_hrqvh"]
+[ext_resource type="Texture2D" uid="uid://dqc1etiuhmcu" path="res://assets/textures/slime/slime_dead.png" id="1_krspv"]
+[ext_resource type="Texture2D" uid="uid://cp4lafkgjkwoq" path="res://assets/textures/slime/slime_idle_1.png" id="2_lvrpp"]
+[ext_resource type="Texture2D" uid="uid://bt3fay1hyvqjc" path="res://assets/textures/slime/slime_idle_2.png" id="3_ipn3n"]
+[ext_resource type="Texture2D" uid="uid://cb5nc2cpb5ak5" path="res://assets/textures/slime/slime_idle_3.png" id="4_rthst"]
+[ext_resource type="Texture2D" uid="uid://ngfhabdrss52" path="res://assets/textures/slime/slime_idle_4.png" id="5_l0ams"]
+[ext_resource type="Texture2D" uid="uid://ngp8hcuh2hkg" path="res://assets/textures/slime/slime_moving_1.png" id="6_qekxs"]
+[ext_resource type="Texture2D" uid="uid://0mn7gfhbd166" path="res://assets/textures/slime/slime_moving_2.png" id="7_7d81j"]
+[ext_resource type="Texture2D" uid="uid://bf2ikq7h6sqoy" path="res://assets/textures/slime/slime_moving_3.png" id="8_j416u"]
+[ext_resource type="Texture2D" uid="uid://d3yeritv54mk0" path="res://assets/textures/slime/slime_moving_4.png" id="9_bictu"]
+[ext_resource type="Texture2D" uid="uid://bx7lp65h62rml" path="res://assets/textures/slime/slime_victory.png" id="10_cp4ey"]
+[ext_resource type="Texture2D" uid="uid://bsslny3v03f8v" path="res://assets/textures/ice/star.png" id="12_qlrcx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kefms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_krspv")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lvrpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ipn3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rthst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l0ams")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qekxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7d81j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j416u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bictu")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_cp4ey")
+}],
+"loop": true,
+"name": &"victory",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jcixx"]
+polygon = PackedVector2Array(-8.99997, 14, -7.99997, 14, -7.99997, 13, -5.99997, 13, -5.99997, 12, -4.99997, 12, -4.99997, 11, -3.99997, 11, -3.99997, 9, -2.99997, 9, -2.99997, 8, -1.99997, 8, -1.99997, 7, -0.999969, 7, -0.999969, 6, 3.05176e-05, 6, 3.05176e-05, 5, 6.00003, 5, 6.00003, 6, 8.00003, 6, 8.00003, 7, 9.00003, 7, 9.00003, 8, 10, 8, 10, 9, 11, 9, 11, 11, 10, 11, 10, 13, 9.00003, 13, 9.00003, 15, 8.00003, 15, 8.00003, 16, -7.99997, 16, -7.99997, 15, -8.99997, 15)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+texture_filter = 1
+position = Vector2(704, -40)
+scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+floor_constant_speed = true
+script = ExtResource("1_hrqvh")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.333333, 0.333333)
+offset = Vector2(0, -50)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+metadata/_edit_lock_ = true
+
+[node name="BG" type="ColorRect" parent="Camera2D"]
+show_behind_parent = true
+z_index = -10
+offset_left = -3452.0
+offset_top = -2549.0
+offset_right = 3454.0
+offset_bottom = 2550.0
+color = Color(0.65098, 0.905882, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21.3333, -2.66667)
+sprite_frames = SubResource("SpriteFrames_kefms")
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D"]
+occluder = SubResource("OccluderPolygon2D_jcixx")
+occluder_light_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(21.3333, -2.66667)
+polygon = PackedVector2Array(-9, 15, -8, 16, 8, 16, 9, 15, 10, 14, 11, 13, 12, 12, 12, 9, 11, 8, 9.00003, 5, 7.00003, 3, 2, 3, -1, 5, -2, 6, -3, 7, -4, 8, -5, 9, -6, 11, -7.99997, 13, -9, 14)
+metadata/_edit_lock_ = true
+
+[node name="IceStars" type="Node2D" parent="."]
+visible = false
+z_index = -1
+scale = Vector2(0.333333, 0.333333)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="IceStars"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("12_qlrcx")
+metadata/_edit_lock_ = true

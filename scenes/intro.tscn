@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://pnhkt2c4itca"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_6jlnr"]
+[ext_resource type="Texture2D" uid="uid://dcv1isxvu7l6l" path="res://assets/textures/text/intro/there_were_times.png" id="1_qu20g"]
+[ext_resource type="PackedScene" uid="uid://bimv56ktvweuk" path="res://scenes/fade_overlay.tscn" id="3_27c0k"]
+
+[node name="CenterContainer" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+size_flags_horizontal = 4
+script = ExtResource("1_6jlnr")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="BG" type="ColorRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5247.4
+offset_top = -4379.0
+offset_right = 4752.6
+offset_bottom = 5621.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -9.0
+offset_right = 82.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qu20g")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_27c0k")]

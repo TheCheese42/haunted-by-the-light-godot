@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx7nnivmkmb25"]
+
+[ext_resource type="Texture2D" uid="uid://bqj7h1c05mikp" path="res://assets/textures/text/haunted_by_the_light.png" id="1_4bjf1"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_gy3t6"]
+[ext_resource type="Texture2D" uid="uid://wepvctv4cg4y" path="res://assets/textures/text/click_to_play.png" id="2_xft6k"]
+[ext_resource type="Texture2D" uid="uid://cxx4blt5bllp0" path="res://assets/textures/text/ui/tip_speed.png" id="3_k5ncl"]
+[ext_resource type="Texture2D" uid="uid://dhqc4v3xbyixr" path="res://assets/textures/text/ui/show_credits.png" id="4_wkhtt"]
+[ext_resource type="Texture2D" uid="uid://cy7olp2p8qf1m" path="res://assets/textures/text/ui/quit_game.png" id="5_jt2q8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy3t6")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.297
+anchor_top = 1.733
+anchor_right = 6.297
+anchor_bottom = 1.733
+offset_left = -251.88
+offset_top = -69.32
+offset_right = -192.88
+offset_bottom = -41.32
+grow_horizontal = 2
+rotation = -0.174533
+scale = Vector2(8, 8)
+theme_override_constants/margin_top = 10
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_4bjf1")
+stretch_mode = 2
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.6
+anchor_top = 0.35
+anchor_right = 0.6
+anchor_bottom = 0.358
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.436332
+scale = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 40.0
+texture = ExtResource("2_xft6k")
+stretch_mode = 2
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.75
+anchor_top = 0.35
+anchor_right = 0.75
+anchor_bottom = 0.35
+
+[node name="TextureRect" type="TextureRect" parent="Control3"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 202.0
+offset_bottom = 40.0
+texture = ExtResource("3_k5ncl")
+stretch_mode = 2
+
+[node name="Control4" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_right = -134.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_bottom = 32.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="TextureRect" type="TextureRect" parent="Control4/MarginContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture = ExtResource("4_wkhtt")
+stretch_mode = 2
+
+[node name="Control5" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -72.0
+offset_bottom = -72.0
+grow_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control5"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+offset_right = 134.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+theme_override_constants/margin_left = 21
+theme_override_constants/margin_bottom = 7
+
+[node name="TextureRect" type="TextureRect" parent="Control5/MarginContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture = ExtResource("5_jt2q8")
+stretch_mode = 2
+
+[connection signal="gui_input" from="Control4/MarginContainer2/TextureRect" to="." method="_on_show_credits_gui_input"]
+[connection signal="gui_input" from="Control5/MarginContainer2/TextureRect" to="." method="_on_quit_game_gui_input"]
