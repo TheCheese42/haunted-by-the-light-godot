@@ -2,4 +2,4 @@
 
 A remake of [Haunted by the Light](https://github.com/TheCheese42/haunted-by-the-light) in the Godot game engine.
 
-See: <https://thecheese.itch.io/haunted-by-the-light>
+See: <https://thecheeseknife.itch.io/haunted-by-the-light>
