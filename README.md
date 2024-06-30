@@ -1,3 +1,5 @@
-# Haunted by the Light Godot
+# Haunted by the Light 2 (Godot edition)
 
-[Haunted by the Light](https://github.com/NotYou404/haunted-by-the-light) but remade using the Godot game engine.
+A remake of [Haunted by the Light](https://github.com/TheCheese42/haunted-by-the-light) in the Godot game engine.
+
+See: <https://thecheeseknife.itch.io/haunted-by-the-light>
